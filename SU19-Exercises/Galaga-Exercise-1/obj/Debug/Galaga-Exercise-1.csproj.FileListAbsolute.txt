@@ -1,0 +1,11 @@
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\Galaga-Exercise-1\bin\Debug\Galaga_Exercise_1.exe
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\Galaga-Exercise-1\bin\Debug\Galaga_Exercise_1.pdb
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\Galaga-Exercise-1\bin\Debug\DIKUArcade.dll
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\Galaga-Exercise-1\bin\Debug\OpenTK.dll
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\Galaga-Exercise-1\bin\Debug\DIKUArcade.pdb
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\Galaga-Exercise-1\bin\Debug\OpenTK.xml
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\Galaga-Exercise-1\obj\Debug\Galaga-Exercise-1.csprojAssemblyReference.cache
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\Galaga-Exercise-1\obj\Debug\Galaga-Exercise-1.csproj.CoreCompileInputs.cache
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\Galaga-Exercise-1\obj\Debug\Galaga-Exercise-1.csproj.CopyComplete
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\Galaga-Exercise-1\obj\Debug\Galaga_Exercise_1.exe
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\Galaga-Exercise-1\obj\Debug\Galaga_Exercise_1.pdb

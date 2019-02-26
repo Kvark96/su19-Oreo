@@ -1,0 +1,11 @@
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\bin\Debug\SU19_Exercises.exe
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\bin\Debug\SU19_Exercises.pdb
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\bin\Debug\OpenTK.dll
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\bin\Debug\OpenTK.xml
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\obj\Debug\SU19-Exercises.csprojAssemblyReference.cache
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\obj\Debug\SU19-Exercises.csproj.CoreCompileInputs.cache
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\obj\Debug\SU19-Exercises.csproj.CopyComplete
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\obj\Debug\SU19_Exercises.exe
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\obj\Debug\SU19_Exercises.pdb
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\bin\Debug\DIKUArcade.dll
+C:\Users\Oliver\Desktop\SU\Assigment4\su19-Oreo\SU19-Exercises\bin\Debug\DIKUArcade.pdb
