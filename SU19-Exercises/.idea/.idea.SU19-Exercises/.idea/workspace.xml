@@ -36,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="752">
-              <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
+            <state relative-caret-position="416">
+              <caret line="26" column="38" lean-forward="true" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
               <folding>
                 <marker date="1551267243736" expanded="true" signature="6:83" ph="..." />
                 <marker date="1551267243736" expanded="true" signature="113:1540" ph="{...}" />
@@ -262,12 +262,12 @@
       <option name="presentableId" value="Default" />
       <updated>1551197487052</updated>
       <workItem from="1551197492974" duration="728000" />
-      <workItem from="1551266478334" duration="770000" />
+      <workItem from="1551266478334" duration="1370000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1498000" />
+    <option name="totallyTimeSpent" value="2098000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -452,8 +452,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
+        <state relative-caret-position="416">
+          <caret line="26" column="38" lean-forward="true" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
           <folding>
             <marker date="1551267243736" expanded="true" signature="6:83" ph="..." />
             <marker date="1551267243736" expanded="true" signature="113:1540" ph="{...}" />
