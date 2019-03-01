@@ -12,6 +12,7 @@ public class Enemy : Entity {
     }
     public List<Image> enemyStrides = new List<Image>();
     public List<Enemy> enemies = new List<Enemy>();
+
     
 
     public void AddEnemies(Enemy singleEnemy) {

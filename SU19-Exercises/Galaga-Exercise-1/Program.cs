@@ -6,8 +6,6 @@ namespace Galaga_Exercise_1 {
         public static void Main(string[] args) {
             Game newGame = new Game();
             newGame.GameLoop();
-            /*GameTimer timer = new GameTimer();
-            Console.WriteLine(timer);*/
         }
     }
 }
