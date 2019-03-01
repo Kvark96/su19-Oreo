@@ -14,6 +14,14 @@ public class Game : IGameEventProcessor<object> {
     private Window win;
     private DIKUArcade.Timers.GameTimer gameTimer;
     private Player player;
+    private Enemy singleEnemy;
+    private Enemy singleEnemy2;
+    private Enemy singleEnemy3;
+    private Enemy singleEnemy4;
+    private Enemy singleEnemy5;
+    private Enemy singleEnemy6;
+    private Enemy singleEnemy7;
+    private Enemy singleEnemy8;
     private List<Image> enemyStrides;
     private List<Enemy> enemies;
     public List<PlayerShot> playerShots { get; private set; }
@@ -30,10 +38,7 @@ public class Game : IGameEventProcessor<object> {
         player = new Player(this,
             new DynamicShape(new Vec2F(0.45f, 0.1f), new Vec2F(0.1f, 0.1f)),
             new Image(Path.Combine("Assets", "Images", "Player.png")));
-        Enemy singleEnemy = new Enemy(this,
-            new DynamicShape(new Vec2F(0.98f, 0.98f), new Vec2F(0.1f, 0.1f)),
-            new Image(Path.Combine("Assets", "Images", "BlueMonster.png")));
-        enemyStrides = ImageStride.CreateStrides(80,
+        enemyStrides = ImageStride.CreateStrides(4,
             Path.Combine("Assets", "Images", "BlueMonster.png"));
         enemies = new List<Enemy>();
         playerShots = new List<PlayerShot>();
@@ -56,8 +61,8 @@ public class Game : IGameEventProcessor<object> {
             gameTimer.MeasureTime();
             while (gameTimer.ShouldUpdate()) {
                 win.PollEvents();
-                // Update game logic here
                 player.Move();
+                AddEnemies();
                 eventBus.ProcessEvents();
                 IterateShots();
             }
@@ -65,6 +70,9 @@ public class Game : IGameEventProcessor<object> {
             if (gameTimer.ShouldRender()) {
                 win.Clear();
                 player.RenderEntity();
+                foreach(Enemy item in enemies) {
+                    item.RenderEntity();
+                }
                 foreach (var shot in playerShots) {
                     shot.RenderEntity();
                 }
@@ -74,7 +82,6 @@ public class Game : IGameEventProcessor<object> {
             }
 
             if (gameTimer.ShouldReset()) {
-                // 1 second has passed - display last captured ups and fps
                 win.Title = "Galaga | UPS: " + gameTimer.CapturedUpdates +
                             ", FPS: " + gameTimer.CapturedFrames;
             }
@@ -135,6 +142,41 @@ public class Game : IGameEventProcessor<object> {
             }
             
         }
+    }
+    private void AddEnemies() {
+        // Hard-coded for easiness (and lateness)
+        singleEnemy = new Enemy(this,
+            new DynamicShape(new Vec2F(0.10f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+        singleEnemy2 = new Enemy(this,
+            new DynamicShape(new Vec2F(0.20f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+        singleEnemy3 = new Enemy(this,
+            new DynamicShape(new Vec2F(0.30f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+        singleEnemy4 = new Enemy(this,
+            new DynamicShape(new Vec2F(0.40f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+        singleEnemy5 = new Enemy(this,
+            new DynamicShape(new Vec2F(0.50f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+        singleEnemy6 = new Enemy(this,
+            new DynamicShape(new Vec2F(0.60f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+        singleEnemy7 = new Enemy(this,
+            new DynamicShape(new Vec2F(0.70f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+        singleEnemy8 = new Enemy(this,
+            new DynamicShape(new Vec2F(0.80f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+        enemies.Add(singleEnemy);
+        enemies.Add(singleEnemy2);
+        enemies.Add(singleEnemy3);
+        enemies.Add(singleEnemy4);
+        enemies.Add(singleEnemy5);
+        enemies.Add(singleEnemy6);
+        enemies.Add(singleEnemy7);
+        enemies.Add(singleEnemy8);
     }
 
     public void IterateShots() {
