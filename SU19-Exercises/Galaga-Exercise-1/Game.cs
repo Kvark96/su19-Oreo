@@ -38,31 +38,36 @@ public class Game : IGameEventProcessor<object> {
         player = new Player(this,
             new DynamicShape(new Vec2F(0.45f, 0.1f), new Vec2F(0.1f, 0.1f)),
             new Image(Path.Combine("Assets", "Images", "Player.png")));
+        
         enemyStrides = ImageStride.CreateStrides(4,
             Path.Combine("Assets", "Images", "BlueMonster.png"));
+        
         enemies = new List<Enemy>();
         playerShots = new List<PlayerShot>();
+        
+        explosionStrides =
+            ImageStride.CreateStrides(8, Path.Combine("Assets", "Images", "Explosion.png"));
+        
+        explosions = new AnimationContainer(8);
         eventBus = new GameEventBus<object>();
-            eventBus.InitializeEventBus(new List<GameEventType>() {
+        eventBus.InitializeEventBus(new List<GameEventType>() {
                 GameEventType.InputEvent,
                 GameEventType.WindowEvent
             });
-            win.RegisterEventBus(eventBus);
+        win.RegisterEventBus(eventBus);
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
-            explosionStrides =
-                ImageStride.CreateStrides(8, Path.Combine("Assets", "Images", "Explosion.png"));
-            explosions = new AnimationContainer(100);
-        score = new Score(new Vec2F(0.01f,0.69f), new Vec2F(0.3f,0.3f));
+            score = new Score(new Vec2F(0.01f,0.69f), new Vec2F(0.3f,0.3f));
     }
 
     public void GameLoop() {
+        AddEnemies();
         while (win.IsRunning()) {
             gameTimer.MeasureTime();
             while (gameTimer.ShouldUpdate()) {
                 win.PollEvents();
                 player.Move();
-                AddEnemies();
+                
                 eventBus.ProcessEvents();
                 IterateShots();
             }
@@ -77,6 +82,7 @@ public class Game : IGameEventProcessor<object> {
                     shot.RenderEntity();
                 }
                 score.RenderScore();
+                explosions.RenderAnimations();
                 win.SwapBuffers();
                 
             }
@@ -190,8 +196,8 @@ public class Game : IGameEventProcessor<object> {
                 if (CollisionDetection.Aabb(shot.dynamicShape, enemy.Shape).Collision) {
                     shot.DeleteEntity();
                     enemy.DeleteEntity();
-                    AddExplosion(shot.dynamicShape.Position.X, shot.dynamicShape.Position.Y, 1.0f, 1.0f);
                     score.AddPoint();
+                    AddExplosion(enemy.Shape.Position.X, enemy.Shape.Position.Y-0.02f, 0.1f, 0.1f);
                 }
             }
         }
@@ -218,9 +224,12 @@ public class Game : IGameEventProcessor<object> {
 
     public void AddExplosion(float posX, float posY,
         float extentX, float extentY) {
-        explosions.AddAnimation(
+        if(explosions.AddAnimation(
             new StationaryShape(posX, posY, extentX, extentY), explosionLength,
-            new ImageStride(explosionLength / 8, explosionStrides));
+            new ImageStride(explosionLength / 8, explosionStrides)))
+        {
+            explosions.RenderAnimations();
+        }
     }
 }
 
