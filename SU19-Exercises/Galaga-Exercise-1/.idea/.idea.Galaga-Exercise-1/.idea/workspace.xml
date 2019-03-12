@@ -3,22 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="224bf0bc-92e0-4480-b115-caa2b19617ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../DIKUArcade" beforeDir="false" afterPath="$PROJECT_DIR$/../../DIKUArcade" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.idea.SU19-Exercises/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.idea.SU19-Exercises/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Galaga-Exercise-1.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Galaga-Exercise-1.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/Galaga_Exercise_1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/Galaga_Exercise_1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/Galaga_Exercise_1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/Galaga_Exercise_1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/Galaga-Exercise-1.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Galaga-Exercise-1.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/Galaga-Exercise-1.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Galaga-Exercise-1.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/Galaga_Exercise_1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Galaga_Exercise_1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/Galaga_Exercise_1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Galaga_Exercise_1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bin/Debug/DIKUArcade.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../bin/Debug/DIKUArcade.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bin/Debug/DIKUArcade.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../bin/Debug/DIKUArcade.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bin/Debug/SU19_Exercises.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../bin/Debug/SU19_Exercises.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bin/Debug/SU19_Exercises.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../bin/Debug/SU19_Exercises.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../obj/Debug/SU19-Exercises.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../obj/Debug/SU19-Exercises.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../obj/Debug/SU19_Exercises.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../obj/Debug/SU19_Exercises.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../obj/Debug/SU19_Exercises.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../obj/Debug/SU19_Exercises.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Galaga-Exercise-1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Galaga-Exercise-1/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,34 +11,90 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Enemy.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding>
+                <marker date="1551405852211" expanded="false" signature="6:127" ph="..." />
+                <marker date="1551405852211" expanded="true" signature="157:315" ph="{...}" />
+                <marker date="1551405852211" expanded="true" signature="279:312" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Game.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding>
+                <marker date="1551408771316" expanded="true" signature="312:8045" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="978:2123" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="1770:1869" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="2152:3160" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="2208:3154" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="2292:2463" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="2507:2945" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="2624:2684" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="2735:2795" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="2988:3144" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="3199:3743" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="3222:3737" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="3784:4181" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="3807:4175" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="4274:4889" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="4328:4529" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="4369:4519" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="4577:4883" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="4621:4860" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="4920:6575" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="6608:7655" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="6652:7181" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="6731:6783" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="6828:7171" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="6917:7157" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="7274:7376" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="7312:7366" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="7519:7617" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="7556:7607" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="7788:8043" ph="{...}" />
+                <marker date="1551408771316" expanded="true" signature="7974:8037" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Game.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="793" />
+    <option name="x" value="-7" />
     <option name="width" value="814" />
     <option name="height" value="867" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="SolutionExplorer" proportions="" version="1">
+    <navigator currentView="FileSystemExplorer" proportions="" version="1">
+      <autoscrollFromSource SolutionExplorer="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="SolutionExplorer">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Galaga-Exercise-1" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
       <pane id="AssemblyExplorer" />
+      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -107,11 +148,13 @@
       <option name="presentableId" value="Default" />
       <updated>1551405351527</updated>
       <workItem from="1551405352746" duration="104000" />
+      <workItem from="1551993298862" duration="655000" />
+      <workItem from="1552402405044" duration="69000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104000" />
+    <option name="totallyTimeSpent" value="828000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -125,20 +168,11 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Image Layers" />
-      <window_info id="Capture Tool" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.5224936" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="NuGet" weight="0.32941177" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Unit Tests" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Performance Profiler" />
-      <window_info anchor="bottom" id="Build" weight="0.32941177" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32941177" />
@@ -146,19 +180,28 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Errors In Solution" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Unit Tests Coverage" />
+      <window_info anchor="bottom" id="NuGet" order="7" weight="0.32941177" />
+      <window_info anchor="bottom" id="Performance Profiler" order="8" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Unit Tests" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="13" />
+      <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="15" weight="0.32941177" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Errors In Solution" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Unit Tests Coverage" order="6" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -169,5 +212,59 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Game.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <marker date="1551408771316" expanded="true" signature="312:8045" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="978:2123" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="1770:1869" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="2152:3160" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="2208:3154" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="2292:2463" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="2507:2945" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="2624:2684" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="2735:2795" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="2988:3144" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="3199:3743" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="3222:3737" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="3784:4181" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="3807:4175" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="4274:4889" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="4328:4529" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="4369:4519" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="4577:4883" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="4621:4860" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="4920:6575" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="6608:7655" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="6652:7181" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="6731:6783" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="6828:7171" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="6917:7157" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="7274:7376" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="7312:7366" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="7519:7617" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="7556:7607" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="7788:8043" ph="{...}" />
+            <marker date="1551408771316" expanded="true" signature="7974:8037" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Enemy.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <marker date="1551405852211" expanded="false" signature="6:127" ph="..." />
+            <marker date="1551405852211" expanded="true" signature="157:315" ph="{...}" />
+            <marker date="1551405852211" expanded="true" signature="279:312" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
