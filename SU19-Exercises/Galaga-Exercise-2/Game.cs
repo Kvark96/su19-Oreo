@@ -9,8 +9,10 @@ using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.Timers;
 using Galaga_Exercise_1;
+using Galaga_Exercise_2.Galaga_Entities;
+using Galaga_Exercise_2.Squadrons;
 
-public class Game : IGameEventProcessor<object> {
+public class Game : IGameEventProcessor<object>, ISquadron{
     private Window win;
     private DIKUArcade.Timers.GameTimer gameTimer;
     private Player player;
@@ -62,7 +64,7 @@ public class Game : IGameEventProcessor<object> {
     }
 
     public void GameLoop() {
-        AddEnemies();
+        //AddEnemies();
         while (win.IsRunning()) {
             gameTimer.MeasureTime();
             while (gameTimer.ShouldUpdate()) {
@@ -100,17 +102,20 @@ public class Game : IGameEventProcessor<object> {
         case "KEY_ESCAPE":
             eventBus.RegisterEvent(
                 GameEventFactory<object>.CreateGameEventForAllProcessors(
-                    GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
+                    GameEventType.WindowEvent, this, "CLOSE_WINDOW",
+                    "", ""));
             break;
         case "KEY_LEFT":
             eventBus.RegisterEvent(
                 GameEventFactory<object>.CreateGameEventForAllProcessors(
-                    GameEventType.InputEvent, this, "KEY_LEFT","",""));
+                    GameEventType.InputEvent, this, "KEY_LEFT",
+                    "",""));
             break;
         case "KEY_RIGHT":
             eventBus.RegisterEvent(
                 GameEventFactory<object>.CreateGameEventForAllProcessors(
-                    GameEventType.InputEvent, this, "KEY_RIGHT","",""));
+                    GameEventType.InputEvent, this, "KEY_RIGHT",
+                    "",""));
             break;
         case "KEY_SPACE":
             player.Shoot();
@@ -123,13 +128,15 @@ public class Game : IGameEventProcessor<object> {
         case "KEY_ESCAPE":
             eventBus.RegisterEvent(
                 GameEventFactory<object>.CreateGameEventForAllProcessors(
-                    GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
+                    GameEventType.WindowEvent, this, "CLOSE_WINDOW",
+                    "", ""));
             break;
         case "KEY_LEFT":
         case "KEY_RIGHT":
             eventBus.RegisterEvent(
                 GameEventFactory<object>.CreateGameEventForAllProcessors(
-                    GameEventType.InputEvent,this,"KEY_RELEASE","",""));
+                    GameEventType.InputEvent,this,"KEY_RELEASE",
+                    "",""));
             break;
         }
     }
@@ -154,31 +161,39 @@ public class Game : IGameEventProcessor<object> {
             
         }
     }
-    private void AddEnemies() {
+    /*private void AddEnemies() {
         // Hard-coded for easiness (and lateness)
         singleEnemy = new Enemy(this,
-            new DynamicShape(new Vec2F(0.10f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new DynamicShape(new Vec2F(0.10f, 0.90f), 
+                new Vec2F(0.1f, 0.1f)),
             new ImageStride(80, enemyStrides));
         singleEnemy2 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.20f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new DynamicShape(new Vec2F(0.20f, 0.90f), 
+                new Vec2F(0.1f, 0.1f)),
             new ImageStride(80, enemyStrides));
         singleEnemy3 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.30f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new DynamicShape(new Vec2F(0.30f, 0.90f), 
+                new Vec2F(0.1f, 0.1f)),
             new ImageStride(80, enemyStrides));
         singleEnemy4 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.40f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new DynamicShape(new Vec2F(0.40f, 0.90f), 
+                new Vec2F(0.1f, 0.1f)),
             new ImageStride(80, enemyStrides));
         singleEnemy5 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.50f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new DynamicShape(new Vec2F(0.50f, 0.90f), 
+                new Vec2F(0.1f, 0.1f)),
             new ImageStride(80, enemyStrides));
         singleEnemy6 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.60f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new DynamicShape(new Vec2F(0.60f, 0.90f), 
+                new Vec2F(0.1f, 0.1f)),
             new ImageStride(80, enemyStrides));
         singleEnemy7 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.70f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new DynamicShape(new Vec2F(0.70f, 0.90f), 
+                new Vec2F(0.1f, 0.1f)),
             new ImageStride(80, enemyStrides));
         singleEnemy8 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.80f, 0.90f), new Vec2F(0.1f, 0.1f)),
+            new DynamicShape(new Vec2F(0.80f, 0.90f), 
+                new Vec2F(0.1f, 0.1f)),
             new ImageStride(80, enemyStrides));
         enemies.Add(singleEnemy);
         enemies.Add(singleEnemy2);
@@ -188,7 +203,7 @@ public class Game : IGameEventProcessor<object> {
         enemies.Add(singleEnemy6);
         enemies.Add(singleEnemy7);
         enemies.Add(singleEnemy8);
-    }
+    }*/
 
     public void IterateShots() {
         foreach (var shot in playerShots) {
@@ -202,7 +217,8 @@ public class Game : IGameEventProcessor<object> {
                     shot.DeleteEntity();
                     enemy.DeleteEntity();
                     score.AddPoint();
-                    AddExplosion(enemy.Shape.Position.X, enemy.Shape.Position.Y-0.02f, 0.1f, 0.1f);
+                    AddExplosion(enemy.Shape.Position.X, enemy.Shape.Position.Y-0.02f,
+                        0.1f, 0.1f);
                 }
             }
         }
@@ -236,5 +252,13 @@ public class Game : IGameEventProcessor<object> {
             explosions.RenderAnimations();
         }
     }
+
+    private EntityContainer<Enemy> Enemies;
+    private int MaxEnemies;
+
+    public void CreateEnemies(List<Image> enemyStrides) {
+        
+    }
+
 }
 
