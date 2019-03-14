@@ -57,6 +57,7 @@ public class Game : IGameEventProcessor<object> {
         win.RegisterEventBus(eventBus);
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
+            eventBus.Subscribe(GameEventType.InputEvent, player);
             score = new Score(new Vec2F(0.01f,0.69f), new Vec2F(0.3f,0.3f));
     }
 
@@ -74,7 +75,7 @@ public class Game : IGameEventProcessor<object> {
 
             if (gameTimer.ShouldRender()) {
                 win.Clear();
-                player.RenderEntity();
+                player.Entity.RenderEntity();
                 foreach(Enemy item in enemies) {
                     item.RenderEntity();
                 }
@@ -102,10 +103,14 @@ public class Game : IGameEventProcessor<object> {
                     GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
             break;
         case "KEY_LEFT":
-            player.Direction(new Vec2F(-0.05f,0.0f));
+            eventBus.RegisterEvent(
+                GameEventFactory<object>.CreateGameEventForAllProcessors(
+                    GameEventType.InputEvent, this, "KEY_LEFT","",""));
             break;
         case "KEY_RIGHT":
-            player.Direction(new Vec2F(0.05f,0.0f));
+            eventBus.RegisterEvent(
+                GameEventFactory<object>.CreateGameEventForAllProcessors(
+                    GameEventType.InputEvent, this, "KEY_RIGHT","",""));
             break;
         case "KEY_SPACE":
             player.Shoot();
@@ -122,7 +127,9 @@ public class Game : IGameEventProcessor<object> {
             break;
         case "KEY_LEFT":
         case "KEY_RIGHT":
-            player.Direction(new Vec2F(0.0f,0.0f));
+            eventBus.RegisterEvent(
+                GameEventFactory<object>.CreateGameEventForAllProcessors(
+                    GameEventType.InputEvent,this,"KEY_RELEASE","",""));
             break;
         }
     }
@@ -133,8 +140,6 @@ public class Game : IGameEventProcessor<object> {
             switch (gameEvent.Message) {
             case "CLOSE_WINDOW":
                 win.CloseWindow();
-                break;
-            default:
                 break;
             }
         } else if (eventType == GameEventType.InputEvent){

@@ -6,6 +6,7 @@ using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
+using OpenTK.Graphics.OpenGL;
 
 public class Player : IGameEventProcessor<object> {
     private Game game;
@@ -17,10 +18,24 @@ public class Player : IGameEventProcessor<object> {
         dynamicShape = shape;
     }
 
-    public void ProcessEvent(GameEventType gameEventType, GameEvent<object>) {
-        
+    public void ProcessEvent(GameEventType gameEventType, GameEvent<object> gameEvent) {
+        if (gameEventType == GameEventType.InputEvent) {
+            switch (gameEvent.Message)
+            {
+                case "KEY_LEFT":
+                    Direction(new Vec2F(-0.02f,0.0f));
+                    break;
+                case "KEY_RIGHT":
+                    Direction(new Vec2F(0.02f,0.0f));
+                    break;
+                case "KEY_RELEASE":
+                    Direction(new Vec2F(0.0f,0.0f));
+                    break;
+            }
+                
+        }
     }
-
+    
     public void Direction(Vec2F direction) {
         dynamicShape.Direction = direction;
     }
