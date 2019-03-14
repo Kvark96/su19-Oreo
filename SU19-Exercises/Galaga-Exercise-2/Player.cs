@@ -3,17 +3,22 @@ using System.IO;
 using System.IO.Pipes;
 using System.Xml;
 using DIKUArcade.Entities;
+using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 
-public class Player : Entity {
+public class Player : IGameEventProcessor<object> {
     private Game game;
     private DynamicShape dynamicShape;
-
-    public Player(Game game, DynamicShape shape, IBaseImage image)
-        : base(shape, image) {
+    public Entity Entity { get; private set; }
+    public Player(Game game, DynamicShape shape, IBaseImage image){
+        Entity = new Entity(shape, image);
         this.game = game;
         dynamicShape = shape;
+    }
+
+    public void ProcessEvent(GameEventType gameEventType, GameEvent<object>) {
+        
     }
 
     public void Direction(Vec2F direction) {
@@ -37,8 +42,4 @@ public class Player : Entity {
 
     }
 
-    /*private Enemy singleEnemy;
-    newEnemy = new Enemy(this, new DynamicShape(
-        new Vec2F(singleEnemy.dynamicShape.Position.X+0.3f, singleEnemy.dynamicShape.Position.Y), 
-            new Vec2F(0.1f, 0.1f)))*/
 }
