@@ -12,7 +12,7 @@ using Galaga_Exercise_1;
 using Galaga_Exercise_2.Galaga_Entities;
 using Galaga_Exercise_2.Squadrons;
 
-public class Game : IGameEventProcessor<object>, ISquadron{
+public class Game : IGameEventProcessor<object>/*ISquadron*/{
     private Window win;
     private DIKUArcade.Timers.GameTimer gameTimer;
     private Player player;
@@ -64,7 +64,7 @@ public class Game : IGameEventProcessor<object>, ISquadron{
     }
 
     public void GameLoop() {
-        //AddEnemies();
+        AddEnemies();
         while (win.IsRunning()) {
             gameTimer.MeasureTime();
             while (gameTimer.ShouldUpdate()) {
@@ -161,8 +161,8 @@ public class Game : IGameEventProcessor<object>, ISquadron{
             
         }
     }
-    /*private void AddEnemies() {
-        // Hard-coded for easiness (and lateness)
+    private void AddEnemies() {
+    /*    // Hard-coded for easiness (and lateness)
         singleEnemy = new Enemy(this,
             new DynamicShape(new Vec2F(0.10f, 0.90f), 
                 new Vec2F(0.1f, 0.1f)),
@@ -202,8 +202,8 @@ public class Game : IGameEventProcessor<object>, ISquadron{
         enemies.Add(singleEnemy5);
         enemies.Add(singleEnemy6);
         enemies.Add(singleEnemy7);
-        enemies.Add(singleEnemy8);
-    }*/
+        enemies.Add(singleEnemy8);*/
+    }
 
     public void IterateShots() {
         foreach (var shot in playerShots) {
@@ -252,13 +252,5 @@ public class Game : IGameEventProcessor<object>, ISquadron{
             explosions.RenderAnimations();
         }
     }
-
-    private EntityContainer<Enemy> Enemies;
-    private int MaxEnemies;
-
-    public void CreateEnemies(List<Image> enemyStrides) {
-        
-    }
-
 }
 
