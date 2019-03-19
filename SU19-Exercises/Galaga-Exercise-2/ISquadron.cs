@@ -15,7 +15,7 @@ namespace Galaga_Exercise_2.Squadrons {
     // Didn't know whether I should initiate it here, or the Game class. Have
     // done it in both, but MovemenStrategies.cs is a little further in this
     // department, it actually looks "somewhat" viable, not that it works though.
-    internal class StraightFormation : ISquadron {
+    /*internal class StraightFormation : ISquadron {
         private int maxEnemies;
         private EntityContainer<Enemy> enemies;
         EntityContainer<Enemy> ISquadron.Enemies => enemies;
@@ -28,5 +28,8 @@ namespace Galaga_Exercise_2.Squadrons {
     
         public void CreateEnemies(List<Image> enemyStrides) {
         }
-    }
+        
+        
+        
+    }*/
 }

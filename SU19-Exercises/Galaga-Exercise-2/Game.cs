@@ -9,11 +9,12 @@ using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.Timers;
 using Galaga_Exercise_1;
+using Galaga_Exercise_2;
 using Galaga_Exercise_2.Galaga_Entities;
 using Galaga_Exercise_2.MovementStrategy;
 using Galaga_Exercise_2.Squadrons;
 
-public class Game : IGameEventProcessor<object>, ISquadron {
+public class Game : IGameEventProcessor<object> {
     private Window win;
     private DIKUArcade.Timers.GameTimer gameTimer;
     private Player player;
@@ -24,11 +25,15 @@ public class Game : IGameEventProcessor<object>, ISquadron {
     private Enemy singleEnemy5;
     private Enemy singleEnemy6;
     private Enemy singleEnemy7;
+
     private Enemy singleEnemy8;
-    // (dosen't work) No idea. Further explanation comes further down
-    private EntityContainer<Enemy> enemy;
+
+    // (doesn't work) No idea. Further explanation comes further down
+    public EntityContainer<Enemy> EnemyContainer;
     private List<Image> enemyStrides;
+
     private List<Enemy> enemies;
+
     // Nope not working either
     private Down enem;
     public List<PlayerShot> playerShots { get; private set; }
@@ -39,8 +44,10 @@ public class Game : IGameEventProcessor<object>, ISquadron {
 
     private Score score;
 
+    private StraightForm straightForm;
+    
     public Game() {
-        win = new Window("BestWindow", 500, 500);
+        win = new Window("Galaga v2", 500, 500);
         gameTimer = new GameTimer(60, 30);
         player = new Player(this,
             new DynamicShape(new Vec2F(0.45f, 0.1f), new Vec2F(0.1f, 0.1f)),
@@ -49,8 +56,8 @@ public class Game : IGameEventProcessor<object>, ISquadron {
         enemyStrides = ImageStride.CreateStrides(4,
             Path.Combine("Assets", "Images", "BlueMonster.png"));
         
-        enemy = new EntityContainer<Enemy>(8);
-        
+        EnemyContainer = new EntityContainer<Enemy>(10);
+        straightForm = new StraightForm(this);
         enemies = new List<Enemy>();
         playerShots = new List<PlayerShot>();
 
@@ -71,16 +78,12 @@ public class Game : IGameEventProcessor<object>, ISquadron {
     }
 
     public void GameLoop() {
-        AddEnemies();
-        /*CreateEnemies(enemyStrides) - (don't work) Tried to initiate the CreateEnemies from
-          the code near the bottom of this class*/
+        straightForm.CreateEnemies(enemyStrides);
         while (win.IsRunning()) {
             gameTimer.MeasureTime();
             while (gameTimer.ShouldUpdate()) {
                 win.PollEvents();
                 player.Move();
-                /*enem.MoveEnemies(enemy); - (dosen't work) Meant to move the enemies, sadly didn't
-                and obviously so, because enemy is empty, since EntityContainers are weird*/
                 eventBus.ProcessEvents();
                 IterateShots();
             }
@@ -92,6 +95,7 @@ public class Game : IGameEventProcessor<object>, ISquadron {
                     item.RenderEntity();
                 }
 
+                EnemyContainer.RenderEntities();
                 foreach (var shot in playerShots) {
                     shot.RenderEntity();
                 }
@@ -173,49 +177,50 @@ public class Game : IGameEventProcessor<object>, ISquadron {
 
         }
     }
+
     private void AddEnemies() {
-            // Hard-coded for easiness (and lateness)
-            singleEnemy = new Enemy(this,
-                new DynamicShape(new Vec2F(0.10f, 0.90f), 
-                    new Vec2F(0.1f, 0.1f)),
-                new ImageStride(80, enemyStrides));
-            singleEnemy2 = new Enemy(this,
-                new DynamicShape(new Vec2F(0.20f, 0.90f), 
-                    new Vec2F(0.1f, 0.1f)),
-                new ImageStride(80, enemyStrides));
-            singleEnemy3 = new Enemy(this,
-                new DynamicShape(new Vec2F(0.30f, 0.90f), 
-                    new Vec2F(0.1f, 0.1f)),
-                new ImageStride(80, enemyStrides));
-            singleEnemy4 = new Enemy(this,
-                new DynamicShape(new Vec2F(0.40f, 0.90f), 
-                    new Vec2F(0.1f, 0.1f)),
-                new ImageStride(80, enemyStrides));
-            singleEnemy5 = new Enemy(this,
-                new DynamicShape(new Vec2F(0.50f, 0.90f), 
-                    new Vec2F(0.1f, 0.1f)),
-                new ImageStride(80, enemyStrides));
-            singleEnemy6 = new Enemy(this,
-                new DynamicShape(new Vec2F(0.60f, 0.90f), 
-                    new Vec2F(0.1f, 0.1f)),
-                new ImageStride(80, enemyStrides));
-            singleEnemy7 = new Enemy(this,
-                new DynamicShape(new Vec2F(0.70f, 0.90f), 
-                    new Vec2F(0.1f, 0.1f)),
-                new ImageStride(80, enemyStrides));
-            singleEnemy8 = new Enemy(this,
-                new DynamicShape(new Vec2F(0.80f, 0.90f), 
-                    new Vec2F(0.1f, 0.1f)),
-                new ImageStride(80, enemyStrides));
-            
-            enemies.Add(singleEnemy);
-            enemies.Add(singleEnemy2);
-            enemies.Add(singleEnemy3);
-            enemies.Add(singleEnemy4);
-            enemies.Add(singleEnemy5);
-            enemies.Add(singleEnemy6);
-            enemies.Add(singleEnemy7);
-            enemies.Add(singleEnemy8);
+        // Hard-coded for easiness (and lateness)
+        singleEnemy = new Enemy(this,
+            new DynamicShape(new Vec2F(0.10f, 0.90f),
+                new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+        singleEnemy2 = new Enemy(this,
+            new DynamicShape(new Vec2F(0.20f, 0.90f),
+                new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+        singleEnemy3 = new Enemy(this,
+            new DynamicShape(new Vec2F(0.30f, 0.90f),
+                new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+        singleEnemy4 = new Enemy(this,
+            new DynamicShape(new Vec2F(0.40f, 0.90f),
+                new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+        singleEnemy5 = new Enemy(this,
+            new DynamicShape(new Vec2F(0.50f, 0.90f),
+                new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+        singleEnemy6 = new Enemy(this,
+            new DynamicShape(new Vec2F(0.60f, 0.90f),
+                new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+        singleEnemy7 = new Enemy(this,
+            new DynamicShape(new Vec2F(0.70f, 0.90f),
+                new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+        singleEnemy8 = new Enemy(this,
+            new DynamicShape(new Vec2F(0.80f, 0.90f),
+                new Vec2F(0.1f, 0.1f)),
+            new ImageStride(80, enemyStrides));
+
+        enemies.Add(singleEnemy);
+        enemies.Add(singleEnemy2);
+        enemies.Add(singleEnemy3);
+        enemies.Add(singleEnemy4);
+        enemies.Add(singleEnemy5);
+        enemies.Add(singleEnemy6);
+        enemies.Add(singleEnemy7);
+        enemies.Add(singleEnemy8);
     }
 
     public void IterateShots() {
@@ -265,56 +270,5 @@ public class Game : IGameEventProcessor<object>, ISquadron {
             explosions.RenderAnimations();
         }
     }
-
-    private void squadronLine() { }
-    // (Doesn't work) Have no idea how EntityContainers really works, it contains entitys yes,
-    // but how to you add these enemies? Tried with AddDynamicEntity(), didn't work,
-    // it also only has 2 parameters (DynamicShape & IBaseImage) whereas enemies
-    // have much more?
-    public EntityContainer<Enemy> Enemies { get; } = new EntityContainer<Enemy>(50);
-    // Should work? Can't test it
-    public int MaxEnemies { get; } = 8;
-
-    // (dosen't work) Tried adding enemies like previous, didn't work (I presume)
-    public void CreateEnemies(List<Image> enemyStrides) {
-        singleEnemy = new Enemy(this,
-            new DynamicShape(new Vec2F(0.10f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-        singleEnemy2 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.20f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-        singleEnemy3 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.30f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-        singleEnemy4 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.40f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-        singleEnemy5 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.50f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-        singleEnemy6 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.60f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-        singleEnemy7 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.70f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-        singleEnemy8 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.80f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-        
-    }
 }
-
-// Might become useful? Who knows
-/*
-private squadronLine(EntityContainer<Enemy> => ,
-int MaxEnemies = 8, )*/
 
