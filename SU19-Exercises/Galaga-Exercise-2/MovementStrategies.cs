@@ -26,20 +26,13 @@ namespace Galaga_Exercise_2.MovementStrategy {
     // This one is the one that is closest to be done, I would say still don't
     // know about these EntityContainers though (more is written in Game.cs)
     public class Down : IMovementStrategy {
-        private DynamicShape dynamicShape;
 
-        public Down(DynamicShape dynamicShape) {
-            this.dynamicShape = dynamicShape;
-        }
-
-
-        public void Direction(Vec2F direction) {
-            dynamicShape.Direction = direction;
+        public Down() {
         }
 
         public void MoveEnemy(Enemy enemy) {
-            for (int i = 0; i < 10; i++) {
-                Direction(new Vec2F(0.0f, -0.02f));
+            for (int i = 0; i < 45; i++) {
+                enemy.Shape.Position.Y -= 0.02f;
             }
         }
 

@@ -45,6 +45,7 @@ public class Game : IGameEventProcessor<object> {
     private Score score;
 
     private StraightForm straightForm;
+    private Down down;
     
     public Game() {
         win = new Window("Galaga v2", 500, 500);
@@ -55,7 +56,6 @@ public class Game : IGameEventProcessor<object> {
 
         enemyStrides = ImageStride.CreateStrides(4,
             Path.Combine("Assets", "Images", "BlueMonster.png"));
-        
         EnemyContainer = new EntityContainer<Enemy>(10);
         straightForm = new StraightForm(this);
         enemies = new List<Enemy>();
@@ -84,6 +84,10 @@ public class Game : IGameEventProcessor<object> {
             while (gameTimer.ShouldUpdate()) {
                 win.PollEvents();
                 player.Move();
+                foreach (Enemy enemy in EnemyContainer) {
+                    down = new Down();
+                    down.MoveEnemy(enemy);
+                }
                 eventBus.ProcessEvents();
                 IterateShots();
             }
@@ -230,7 +234,7 @@ public class Game : IGameEventProcessor<object> {
                 shot.DeleteEntity();
             }
 
-            foreach (var enemy in enemies) {
+            foreach (Enemy enemy in EnemyContainer) {
                 if (CollisionDetection.Aabb(shot.dynamicShape, enemy.Shape).Collision) {
                     shot.DeleteEntity();
                     enemy.DeleteEntity();
@@ -242,7 +246,7 @@ public class Game : IGameEventProcessor<object> {
         }
 
         List<Enemy> newEnemies = new List<Enemy>();
-        foreach (var enemy in enemies) {
+        foreach (Enemy enemy in EnemyContainer) {
             if (!enemy.IsDeleted()) {
                 newEnemies.Add(enemy);
             }
