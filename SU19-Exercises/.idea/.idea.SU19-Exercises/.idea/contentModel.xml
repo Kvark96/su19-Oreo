@@ -96,11 +96,13 @@
         <e p="ArrowForm.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="DiamondForm.cs" t="Include" />
+        <e p="Down.cs" t="Include" />
         <e p="Enemy.cs" t="Include" />
         <e p="Galaga-Exercise-2.csproj" t="IncludeRecursive" />
         <e p="Game.cs" t="Include" />
         <e p="ISquadron.cs" t="Include" />
         <e p="MovementStrategies.cs" t="Include" />
+        <e p="NoMove.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="OpenTK.dll.config" t="Include" />
         <e p="packages.config" t="Include" />
@@ -112,6 +114,7 @@
         </e>
         <e p="Score.cs" t="Include" />
         <e p="StraightForm.cs" t="Include" />
+        <e p="ZigZag.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="OpenTK.dll.config" t="Include" />

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using DIKUArcade;
@@ -11,27 +10,16 @@ using DIKUArcade.Timers;
 using Galaga_Exercise_1;
 using Galaga_Exercise_2;
 using Galaga_Exercise_2.Galaga_Entities;
-using Galaga_Exercise_2.MovementStrategy;
 
 public class Game : IGameEventProcessor<object> {
     private Window win;
-    private DIKUArcade.Timers.GameTimer gameTimer;
+    private GameTimer gameTimer;
     private Player player;
-    private Enemy singleEnemy;
-    private Enemy singleEnemy2;
-    private Enemy singleEnemy3;
-    private Enemy singleEnemy4;
-    private Enemy singleEnemy5;
-    private Enemy singleEnemy6;
-    private Enemy singleEnemy7;
-
-    private Enemy singleEnemy8;
 
     public EntityContainer<Enemy> EnemyContainer;
 
     private List<Image> enemyStrides;
 
-    private List<Enemy> enemies;
 
     public List<PlayerShot> playerShots { get; private set; }
 
@@ -65,7 +53,6 @@ public class Game : IGameEventProcessor<object> {
         arrowForm = new ArrowForm(this);
         diamondForm = new DiamondForm(this);
         
-        enemies = new List<Enemy>();
         playerShots = new List<PlayerShot>();
 
         explosionStrides =
@@ -93,18 +80,21 @@ public class Game : IGameEventProcessor<object> {
             while (gameTimer.ShouldUpdate()) {
                 win.PollEvents();
                 player.Move();
-                /*
-                foreach (Enemy enemy in EnemyContainer) {
+                
+                /*foreach (Enemy enemy in EnemyContainer) {
                     noMove = new NoMove();
                     noMove.MoveEnemy(enemy);
-                } */
+                }*/
                 // To chose another formation or movement strategy, just uncomment
                 // the wanted formation or movement and out-comment, the previous
                 // one. Arrow formation and Down is standard right now
+                
                 foreach (Enemy enemy in EnemyContainer) {
                     down = new Down();
                     down.MoveEnemy(enemy);
                 }
+                
+                
                 // Zigzag can look a little confusing, with any other formation
                 // than straightForm. But this of course, can also just make the
                 // game harder
@@ -119,9 +109,6 @@ public class Game : IGameEventProcessor<object> {
             if (gameTimer.ShouldRender()) {
                 win.Clear();
                 player.Entity.RenderEntity();
-                foreach (Enemy item in enemies) {
-                    item.RenderEntity();
-                }
 
                 EnemyContainer.RenderEntities();
                 foreach (var shot in playerShots) {
