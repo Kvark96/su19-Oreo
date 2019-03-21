@@ -34,8 +34,6 @@ public class Game : IGameEventProcessor<object> {
 
     private List<Enemy> enemies;
 
-    // Nope not working either
-    private Down enem;
     public List<PlayerShot> playerShots { get; private set; }
 
     private GameEventBus<object> eventBus;
@@ -45,7 +43,12 @@ public class Game : IGameEventProcessor<object> {
     private Score score;
 
     private StraightForm straightForm;
+    private ArrowForm arrowForm;
+    private DiamondForm diamondForm;
+    private NoMove noMove;
     private Down down;
+    
+    
     
     public Game() {
         win = new Window("Galaga v2", 500, 500);
@@ -58,6 +61,8 @@ public class Game : IGameEventProcessor<object> {
             Path.Combine("Assets", "Images", "BlueMonster.png"));
         EnemyContainer = new EntityContainer<Enemy>(10);
         straightForm = new StraightForm(this);
+        arrowForm = new ArrowForm(this);
+        diamondForm = new DiamondForm(this);
         enemies = new List<Enemy>();
         playerShots = new List<PlayerShot>();
 
@@ -78,12 +83,19 @@ public class Game : IGameEventProcessor<object> {
     }
 
     public void GameLoop() {
-        straightForm.CreateEnemies(enemyStrides);
+        //straightForm.CreateEnemies(enemyStrides);
+        //arrowForm.CreateEnemies(enemyStrides);
+        diamondForm.CreateEnemies(enemyStrides);
         while (win.IsRunning()) {
             gameTimer.MeasureTime();
             while (gameTimer.ShouldUpdate()) {
                 win.PollEvents();
                 player.Move();
+                /*
+                foreach (Enemy enemy in EnemyContainer) {
+                    noMove = new NoMove();
+                    noMove.MoveEnemy(enemy);
+                } */
                 foreach (Enemy enemy in EnemyContainer) {
                     down = new Down();
                     down.MoveEnemy(enemy);

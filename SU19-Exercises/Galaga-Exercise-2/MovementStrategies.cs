@@ -13,6 +13,11 @@ namespace Galaga_Exercise_2.MovementStrategy {
 
     // This one should be correct, maybe.
     internal class NoMove : IMovementStrategy {
+
+        public NoMove() {
+            
+        }
+        
         public void MoveEnemy(Enemy enemy) {
             // Empty because they don't move
         }
@@ -31,9 +36,7 @@ namespace Galaga_Exercise_2.MovementStrategy {
         }
 
         public void MoveEnemy(Enemy enemy) {
-            for (int i = 0; i < 45; i++) {
-                enemy.Shape.Position.Y -= 0.02f;
-            }
+            enemy.Shape.Position.Y -= 0.001f;
         }
 
         // Guessing list functions like this, can be used to make them move
