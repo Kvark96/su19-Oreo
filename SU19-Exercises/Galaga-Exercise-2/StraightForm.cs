@@ -2,10 +2,8 @@ using Galaga_Exercise_2.Galaga_Entities;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using System.Collections.Generic;
-using DIKUArcade.EventBus;
 using DIKUArcade.Math;
 using Galaga_Exercise_2.Squadrons;
-using Galaga_Exercise_2.Galaga_Entities;
 
 namespace Galaga_Exercise_2 {
     public class StraightForm : ISquadron {

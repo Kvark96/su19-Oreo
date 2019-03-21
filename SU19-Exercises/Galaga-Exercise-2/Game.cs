@@ -12,7 +12,6 @@ using Galaga_Exercise_1;
 using Galaga_Exercise_2;
 using Galaga_Exercise_2.Galaga_Entities;
 using Galaga_Exercise_2.MovementStrategy;
-using Galaga_Exercise_2.Squadrons;
 
 public class Game : IGameEventProcessor<object> {
     private Window win;
@@ -28,8 +27,8 @@ public class Game : IGameEventProcessor<object> {
 
     private Enemy singleEnemy8;
 
-    // (doesn't work) No idea. Further explanation comes further down
     public EntityContainer<Enemy> EnemyContainer;
+
     private List<Image> enemyStrides;
 
     private List<Enemy> enemies;
@@ -207,50 +206,7 @@ public class Game : IGameEventProcessor<object> {
         }
     }
 
-    private void AddEnemies() {
-        // Hard-coded for easiness (and lateness)
-        singleEnemy = new Enemy(this,
-            new DynamicShape(new Vec2F(0.10f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-        singleEnemy2 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.20f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-        singleEnemy3 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.30f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-        singleEnemy4 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.40f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-        singleEnemy5 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.50f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-        singleEnemy6 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.60f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-        singleEnemy7 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.70f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-        singleEnemy8 = new Enemy(this,
-            new DynamicShape(new Vec2F(0.80f, 0.90f),
-                new Vec2F(0.1f, 0.1f)),
-            new ImageStride(80, enemyStrides));
-
-        enemies.Add(singleEnemy);
-        enemies.Add(singleEnemy2);
-        enemies.Add(singleEnemy3);
-        enemies.Add(singleEnemy4);
-        enemies.Add(singleEnemy5);
-        enemies.Add(singleEnemy6);
-        enemies.Add(singleEnemy7);
-        enemies.Add(singleEnemy8);
-    }
+    
 
     public void IterateShots() {
         foreach (var shot in playerShots) {
@@ -270,14 +226,14 @@ public class Game : IGameEventProcessor<object> {
             }
         }
 
-        List<Enemy> newEnemies = new List<Enemy>();
+        EntityContainer<Enemy> newEnemyContainer = new EntityContainer<Enemy>();
         foreach (Enemy enemy in EnemyContainer) {
             if (!enemy.IsDeleted()) {
-                newEnemies.Add(enemy);
+                newEnemyContainer.AddDynamicEntity(enemy);
             }
         }
 
-        enemies = newEnemies;
+        EnemyContainer = newEnemyContainer;
 
         List<PlayerShot> newShots = new List<PlayerShot>();
         foreach (var shot in playerShots) {
