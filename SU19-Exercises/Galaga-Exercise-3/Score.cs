@@ -2,7 +2,7 @@ using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using System.Drawing;
 
-namespace Galaga_Exercise_1 {
+namespace Galaga_Exercise_3 {
     public class Score {
         private int score;
         private Text display;

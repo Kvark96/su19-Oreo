@@ -7,9 +7,9 @@ using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.Timers;
-using Galaga_Exercise_1;
-using Galaga_Exercise_2;
-using Galaga_Exercise_2.Galaga_Entities;
+using Galaga_Exercise_3;
+using Galaga_Exercise_3;
+using Galaga_Exercise_3.Galaga_Entities;
 
 public class Game : IGameEventProcessor<object> {
     private Window win;

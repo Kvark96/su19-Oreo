@@ -1,9 +1,9 @@
-using Galaga_Exercise_2.Galaga_Entities;
+using Galaga_Exercise_3.Galaga_Entities;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using System.Collections.Generic;
 
-namespace Galaga_Exercise_2.Squadrons {
+namespace Galaga_Exercise_3.Squadrons {
     // A nice long code, that dosen't work, most of the details is written in
     // the Game.cs class
     public interface ISquadron {

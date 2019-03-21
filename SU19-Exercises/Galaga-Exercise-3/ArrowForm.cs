@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
-using Galaga_Exercise_2.Galaga_Entities;
-using Galaga_Exercise_2.Squadrons;
+using Galaga_Exercise_3.Galaga_Entities;
+using Galaga_Exercise_3.Squadrons;
 
-namespace Galaga_Exercise_2 {
+namespace Galaga_Exercise_3 {
     public class ArrowForm : ISquadron{
         private int maxEnemies;
         private EntityContainer<Enemy> enemies;

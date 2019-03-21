@@ -1,7 +1,7 @@
 using System;
 using DIKUArcade.Entities;
-using Galaga_Exercise_2.Galaga_Entities;
-using Galaga_Exercise_2.MovementStrategy;
+using Galaga_Exercise_3.Galaga_Entities;
+using Galaga_Exercise_3.MovementStrategy;
 
     // For some reason, it acts a bit weird.
     // It does zig zag, though we have no explanation
