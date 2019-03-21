@@ -13,11 +13,6 @@ namespace Galaga_Exercise_2.MovementStrategy {
 
     // This one should be correct, maybe.
     internal class NoMove : IMovementStrategy {
-
-        public NoMove() {
-            
-        }
-        
         public void MoveEnemy(Enemy enemy) {
             // Empty because they don't move
         }
@@ -31,10 +26,6 @@ namespace Galaga_Exercise_2.MovementStrategy {
     // This one is the one that is closest to be done, I would say still don't
     // know about these EntityContainers though (more is written in Game.cs)
     public class Down : IMovementStrategy {
-
-        public Down() {
-        }
-
         public void MoveEnemy(Enemy enemy) {
             enemy.Shape.Position.Y -= 0.001f;
         }
@@ -46,31 +37,27 @@ namespace Galaga_Exercise_2.MovementStrategy {
             }
         }
     }
-    
-    // More or less the same as above
     public class ZigZagDown : IMovementStrategy {
         private DynamicShape dynamicShape;
-        private float s = 0.0003f;
-        private float p = 0.045f;
-        private float a = 0.05f;
+        private float speed = 0.0003f;
+        private float period = 0.075f;
+        private float amplitude = 0.005f;
         private float newY;
-        private float oldY;
+        private float newY2;
         private float newX;
         private float startX;
         private float startY;
-
-
-        public void Direction(Vec2F direction) {
-            dynamicShape.Direction = direction;
-        }
-
         public void MoveEnemy(Enemy enemy) {
-            for (int i = 0; i < 10; i++) {
-                newY = oldY + s;
-                newX = (float) (startX + a * Math.Sin((2 * Math.PI * (startY - newY)) / p));
-                Direction(new Vec2F(newX, newY));
-                oldY = newY;
-            }
+                newY = enemy.Shape.Position.Y;
+                newX = enemy.Shape.Position.X;
+                startX = enemy.startPos.X;
+                startY = enemy.startPos.Y;
+                newY -= speed;
+                newY2 += speed;
+                newX = (float) (startX + amplitude *
+                    Math.Sin(2 * Math.PI * (startY - newY2) / period));
+                enemy.Shape.Position.X = newX;
+                enemy.Shape.Position.Y = newY;
         }
 
         public void MoveEnemies(EntityContainer<Enemy> enemies) {

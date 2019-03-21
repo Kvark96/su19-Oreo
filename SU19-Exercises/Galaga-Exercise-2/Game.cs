@@ -47,6 +47,7 @@ public class Game : IGameEventProcessor<object> {
     private DiamondForm diamondForm;
     private NoMove noMove;
     private Down down;
+    private ZigZagDown zigZagDown;
     
     
     
@@ -60,9 +61,11 @@ public class Game : IGameEventProcessor<object> {
         enemyStrides = ImageStride.CreateStrides(4,
             Path.Combine("Assets", "Images", "BlueMonster.png"));
         EnemyContainer = new EntityContainer<Enemy>(10);
+        
         straightForm = new StraightForm(this);
         arrowForm = new ArrowForm(this);
         diamondForm = new DiamondForm(this);
+        
         enemies = new List<Enemy>();
         playerShots = new List<PlayerShot>();
 
@@ -84,8 +87,8 @@ public class Game : IGameEventProcessor<object> {
 
     public void GameLoop() {
         //straightForm.CreateEnemies(enemyStrides);
-        //arrowForm.CreateEnemies(enemyStrides);
-        diamondForm.CreateEnemies(enemyStrides);
+        arrowForm.CreateEnemies(enemyStrides);
+        //diamondForm.CreateEnemies(enemyStrides);
         while (win.IsRunning()) {
             gameTimer.MeasureTime();
             while (gameTimer.ShouldUpdate()) {
@@ -96,10 +99,20 @@ public class Game : IGameEventProcessor<object> {
                     noMove = new NoMove();
                     noMove.MoveEnemy(enemy);
                 } */
+                // To chose another formation or movement strategy, just uncomment
+                // the wanted formation or movement and out-comment, the previous
+                // one. Arrow formation and Down is standard right now
                 foreach (Enemy enemy in EnemyContainer) {
                     down = new Down();
                     down.MoveEnemy(enemy);
                 }
+                // Zigzag can look a little confusing, with any other formation
+                // than straightForm. But this of course, can also just make the
+                // game harder
+                /*foreach (Enemy enemy in EnemyContainer) {
+                    zigZagDown = new ZigZagDown();
+                    zigZagDown.MoveEnemy(enemy);
+                }*/
                 eventBus.ProcessEvents();
                 IterateShots();
             }
