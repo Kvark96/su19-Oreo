@@ -47,6 +47,7 @@
         <Compile Include="DiamondForm.cs" />
         <Compile Include="Down.cs" />
         <Compile Include="Enemy.cs" />
+        <Compile Include="GalagaBus.cs" />
         <Compile Include="Game.cs" />
         <Compile Include="ISquadron.cs" />
         <Compile Include="MovementStrategies.cs" />
