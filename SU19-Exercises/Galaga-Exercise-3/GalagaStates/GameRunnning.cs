@@ -5,10 +5,9 @@ using DIKUArcade.Graphics;
 using GalagaGame;
 
 namespace Galaga_Exercise_3.GalagaStates {
-    public class GamePaused : IGameState {
-        private static GamePaused instance = null;
-        
+    public class GameRunning : IGameState {
         public void GameLoop() {
+            throw new System.NotImplementedException();
         }
 
         public void InitializeGameState() {
@@ -29,10 +28,12 @@ namespace Galaga_Exercise_3.GalagaStates {
             case "KEY_P":
                 GalagaBus.eventBus.RegisterEvent(
                     GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.InputEvent, this, "GAME_RUNNING",
+                        GameEventType.InputEvent, this, "GAME_PAUSED",
                         "", ""));
                 break;
             }
         }
+        
+        // Most of the Game.cs class is going to be here
     }
 }
