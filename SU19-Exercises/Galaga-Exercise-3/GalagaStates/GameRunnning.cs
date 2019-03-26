@@ -6,6 +6,12 @@ using GalagaGame;
 
 namespace Galaga_Exercise_3.GalagaStates {
     public class GameRunning : IGameState {
+        private static GameRunning instance = null;
+
+        public static GameRunning GetInstance() {
+            return GameRunning.instance ?? (GameRunning.instance = new GameRunning());
+        }
+        
         public void GameLoop() {
             throw new System.NotImplementedException();
         }

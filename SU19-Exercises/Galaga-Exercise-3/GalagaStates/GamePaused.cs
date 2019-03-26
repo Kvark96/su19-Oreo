@@ -7,6 +7,10 @@ using GalagaGame;
 namespace Galaga_Exercise_3.GalagaStates {
     public class GamePaused : IGameState {
         private static GamePaused instance = null;
+
+        public static GamePaused GetInstance() {
+            return GamePaused.instance ?? (GamePaused.instance = new GamePaused());
+        }
         
         public void GameLoop() {
         }
@@ -29,7 +33,7 @@ namespace Galaga_Exercise_3.GalagaStates {
             case "KEY_P":
                 GalagaBus.eventBus.RegisterEvent(
                     GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.InputEvent, this, "GAME_RUNNING",
+                        GameEventType.InputEvent, this, "GAME_PAUSED",
                         "", ""));
                 break;
             }
