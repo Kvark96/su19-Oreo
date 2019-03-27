@@ -30,7 +30,26 @@ namespace GalagaGame.GalagaState {
         }
 
         public void ProcessEvent(GameEventType gameEventType, GameEvent<object> gameEvent) {
-            
+            // Process the events to be handled by StateMachine. When the GameState is changed,
+            // it will be sent as a GameStateEvent, and StateMachine should change the GameState
+            // accordingly (with SwitchState).
+            var msg = gameEvent.Message;
+            switch (gameEventType) {
+                case GameEventType.InputEvent:
+                    break;
+                case GameEventType.GameStateEvent:
+                    switch (msg) {
+                        case "GAME_PAUSED":
+                            SwitchState(GameStateType.GamePaused);
+                            break;
+                        case "GAME_RUNNING":
+                            SwitchState(GameStateType.GameRunning);
+                            break;
+                        case "GAME_MAINMENU":
+                            SwitchState(GameStateType.MainMenu);
+                            break;
+                    }
+            }
         }
     }
 }

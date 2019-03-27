@@ -10,6 +10,7 @@ using DIKUArcade.Timers;
 using Galaga_Exercise_3;
 using Galaga_Exercise_3;
 using Galaga_Exercise_3.Galaga_Entities;
+using GalagaGame;
 
 public class Game : IGameEventProcessor<object> {
     private Window win;
@@ -40,6 +41,11 @@ public class Game : IGameEventProcessor<object> {
     
     public Game() {
         win = new Window("Galaga v2", 500, 500);
+        GalagaBus.eventBus.RegisterEvent(
+            GameEventFactory<object>.CreateGameEventForAllProcessors(
+                GameEventType.GameStateEvent, this, "MAIN_MENU",
+                "", ""));
+        
         gameTimer = new GameTimer(60, 30);
         player = new Player(this,
             new DynamicShape(new Vec2F(0.45f, 0.1f), new Vec2F(0.1f, 0.1f)),
